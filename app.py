@@ -34,8 +34,16 @@ class GetRankingTable(Resource):
         return {'ranking_table': json_str}
 
 
+class TestFunc(Resource):
+    def post(self):
+        args = parser.parse_args()
+        test = args['test'] + '--- test ok'
+        return {'test': test}
+
+
 api.add_resource(GetScore, "/get_score")
 api.add_resource(GetRankingTable, "/get_ranking_table")
+api.add_resource(TestFunc, "/test_func")
 
 if __name__ == "__main__":
     app.run('127.0.0.1', 5003, debug=True)

@@ -2,6 +2,12 @@
 
 <img src="data/kagglelike-leaderboard.gif" width="800">
 
+## memo
+- heroku
+	- address: https://data-science-comp-01.herokuapp.com/
+	- dashboard: https://dashboard.heroku.com/apps/data-science-comp-01
+	- log: `heroku logs -t -a data-science-comp-01`
+
 ## python3 setup
 1. cd data
 1. pip3 install -r requirements.txt

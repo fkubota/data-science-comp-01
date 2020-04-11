@@ -96,7 +96,7 @@ import axios from 'axios'
       async testApi(){
         console.log('func-↓testApi')
         // POST
-        await axios.post('http://127.0.0.1:5003/get_score', {
+        await axios.post('https://data-science-comp-01.herokuapp.com/test_func', {
           test: 'hello_api'
         })
         .then((response) => {

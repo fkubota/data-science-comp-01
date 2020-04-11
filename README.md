@@ -11,7 +11,7 @@
 
 - check
 	- curl(local): curl localhost:5002/myapi -d "arg01=hello_flask"
-    - curl(web): curl https://data-science-comp-01.herokuapp.com/test -d "test=hello_flask"
+    - curl(web): curl https://data-science-comp-01.herokuapp.com/test -d "test=test_comment"
 
 ## python3 setup
 1. cd data

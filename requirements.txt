@@ -1,4 +1,6 @@
 flask
+scikit-learn
+pandas
 gunicorn
 flask
 flask_restful

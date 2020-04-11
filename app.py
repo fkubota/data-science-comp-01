@@ -12,6 +12,7 @@ api = Api(app)
 parser = reqparse.RequestParser()
 parser.add_argument("arg_subData")
 parser.add_argument("arg_selection_name")
+parser.add_argument("test")
 
 
 class GetScore(Resource):

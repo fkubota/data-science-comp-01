@@ -4,6 +4,10 @@
 
 ## memo
 - 使用したデータ・セット(private): https://github.com/fkubota/Dataset-CareerCon-2019-Help-Navigate-Robots
+
+- github pages
+	- url: https://fkubota.github.io/data-science-comp-01/
+
 - heroku
 	- address: https://data-science-comp-01.herokuapp.com/
 	- dashboard: https://dashboard.heroku.com/apps/data-science-comp-01

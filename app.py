@@ -38,7 +38,7 @@ class TestFunc(Resource):
     def post(self):
         args = parser.parse_args()
         test = args['test'] + '--- test ok'
-        return {'test': test}
+        return {'test_return': test}
 
 
 api.add_resource(GetScore, "/get_score")

@@ -18,6 +18,7 @@
           </v-col>
         </v-row>
         <v-row justify='end'>
+            <v-btn x-large color='primary' @click='testApi' outlined target='#de'>test_api</v-btn>
             <v-btn x-large color='primary' @click='getScore' outlined target='#de'>submit</v-btn>
         </v-row>
         <v-list-item-title class="title grey--text text--darken-2" align='center' style='margin-top: 30px'>
@@ -91,6 +92,18 @@ import axios from 'axios'
       }
     },
     methods: {
+      async testApi(){
+        console.log('func-↓testApi')
+        // POST
+        await axios.post('http://127.0.0.1:5003/get_score', {
+          arg_subData: this.subData,
+          arg_selection_name: this.selection_name,
+        })
+        .then((response) => {
+          this.score = response.data.score
+          this.getRankingTable()
+        })
+      },
       readFileAsync (file) {
         return new Promise((resolve, reject) => {
           const reader = new FileReader()

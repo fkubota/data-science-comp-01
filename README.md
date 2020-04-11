@@ -3,6 +3,7 @@
 <img src="data/kagglelike-leaderboard.gif" width="800">
 
 ## memo
+- 使用したデータ・セット(private): https://github.com/fkubota/Dataset-CareerCon-2019-Help-Navigate-Robots
 - heroku
 	- address: https://data-science-comp-01.herokuapp.com/
 	- dashboard: https://dashboard.heroku.com/apps/data-science-comp-01

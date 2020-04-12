@@ -100,10 +100,11 @@ def get_ranking_table():
         idx = df['name'] == name
         max_scores.append(df[idx]['score'].max())
     df_rank = pd.DataFrame()
-    df_rank['#'] = np.arange(len(names))
     df_rank['Name'] = names
     df_rank['Score'] = max_scores
     df_rank['N_Submission'] = n_subs
+    df_rank = df_rank.sort_values('Score', ascending=False).reset_index(drop=True)
+    df_rank['#'] = np.arange(len(names))
     print(df_rank)
 
     # create json ranking table

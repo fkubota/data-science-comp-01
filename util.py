@@ -22,7 +22,6 @@ engine = create_engine('postgresql://{user}:{password}@{host}:{port}/{database}'
 
 
 def tell_me_score(text):
-    submission = text2df(text)
     current_dir = str(pathlib.Path(__file__).resolve().parent)
     path_y_te = str(current_dir)+'/./data/y_test.csv'
     df_y_te = pd.read_csv(path_y_te)
@@ -31,6 +30,7 @@ def tell_me_score(text):
     #     return 'bad_submission'
 
     try:
+        submission = text2df(text)
         y_true = df_y_te['surface'].values
         y_pred = submission['surface'].values
 

@@ -35,6 +35,13 @@ class GetRankingTable(Resource):
         return {'ranking_table': json_str}
 
 
+class GetParticipants(Resource):
+    def post(self):
+        # print('--- in api GetParticipants ---')
+        participants = ['a', 'b', 'c']
+        return {'participants': str(participants)}
+
+
 class TestFunc(Resource):
     def post(self):
         args = parser.parse_args()
@@ -44,6 +51,7 @@ class TestFunc(Resource):
 
 api.add_resource(GetScore, "/get_score")
 api.add_resource(GetRankingTable, "/get_ranking_table")
+api.add_resource(GetParticipants, "/get_participants")
 api.add_resource(TestFunc, "/test_func")
 
 if __name__ == "__main__":

@@ -101,3 +101,7 @@ def get_ranking_table():
         json_str = f'{json_str} {s}'
     json_str = json_str[:-1]
     return json_str
+
+
+def get_participants():
+    pass

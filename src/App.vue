@@ -147,6 +147,15 @@ import axios from 'axios'
         console.log(this.rankingTable)
         this.updateRankingTable()
       },
+      async getParticipants(){
+        console.log('func-↓getParticipants')
+        // POST
+        await axios.post(this.heroku_addr+'get_participants', {
+        })
+        .then((response) => {
+          this.participants = response.data.participants
+        })
+      },
       updateRankingTable() {
         console.log('func-↓updateRankingTable')
         const participants = [];
@@ -168,6 +177,7 @@ import axios from 'axios'
     created () {
       console.log('func-↓mounted')
       console.log(this.participants)
+      this.getParticipants()
       this.getRankingTable()
     }
   }

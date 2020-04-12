@@ -31,12 +31,17 @@
             <v-btn x-large color='primary' @click='getScore' outlined target='#de'>submit</v-btn>
         </v-row>
         <v-list-item-title class="title grey--text text--darken-2" align='center' style='margin-top: 30px'>
-          your submission score is <h2><font color='blue'>{{score}}</font></h2>
+          your submission score is 
+           <transition mode="out-in">
+            <div v-if="this.show_score" style='fontSize: 40px' class='primary--text'>
+                 <p>{{score}}</p>
+            </div>
+           </transition>
         </v-list-item-title>
         <v-divider></v-divider>
-        <v-list-item-title class="title grey--text text--darken-2" align='center' style='margin-top: 50px'>
-          Leaderboard
-        </v-list-item-title>
+        <div class="title grey--text text--darken-2" align='center' style='margin-top: 50px'>
+          <p>Leaderboard</p>
+        </div>
         <v-data-table
           :headers="headers" 
           :items="participants" 
@@ -61,6 +66,7 @@ import axios from 'axios'
       return {
         heroku_addr: 'https://data-science-comp-01.herokuapp.com/',
         show_alert: false,
+        show_score: false,
         test_api:'test_api',
         score: '...',
         hello: '',
@@ -126,6 +132,7 @@ import axios from 'axios'
       },
       async getScore(){
         console.log('func-↓getScore')
+        this.show_score = false
         // POST
         await axios.post(this.heroku_addr + 'get_score', {
           arg_subData: this.subData,
@@ -143,6 +150,7 @@ import axios from 'axios'
             this.score = score
             this.getRankingTable()
           }
+        this.show_score = true
         })
       },
       async getRankingTable(){
@@ -193,3 +201,29 @@ import axios from 'axios'
     }
   }
 </script>
+
+<style lang="scss">
+ .v-enter-active {
+  transition: all 1.0s ease 0s;
+ }
+ .v-leave-active {
+  transition: all 0s ease 0s;
+ }
+ .v-leave-active {
+  position: absolute;
+ }
+ .v-enter,
+ .v-leave-to {
+  opacity: 0;
+ }
+ .v-enter {
+  transform: translateX(-60px);
+ }
+ .v-enter-to,
+ .v-leave {
+  transform: translateX(0);
+ }
+ .v-leave-to {
+  transform: translateX(60px);
+ }
+</style>

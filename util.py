@@ -45,7 +45,6 @@ def tell_me_score(text):
         return 'bad_submission'
 
 
-
 def text2df(text):
     text = text.split('\n')
     arr = []

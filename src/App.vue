@@ -38,8 +38,8 @@
         </v-row>
         <v-row>
           <v-col align='right'>
-            <v-btn x-large color='primary' @click='getScore' outlined target='#de'>
-              <v-icon left>mdi-send</v-icon> submit
+            <v-btn x-large color='primary' @click='getScore' outlined target='#de' class="ma-2">
+              <v-icon left>mdi-cloud-upload</v-icon> submit
             </v-btn>
           </v-col>
         </v-row>

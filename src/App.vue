@@ -127,7 +127,7 @@ import axios from 'axios'
       async getScore(){
         console.log('func-↓getScore')
         // POST
-        await axios.post('http://127.0.0.1:5003/get_score', {
+        await axios.post(this.heroku_addr + 'get_score', {
           arg_subData: this.subData,
           arg_selection_name: this.selection_name,
         })
@@ -139,7 +139,8 @@ import axios from 'axios'
       async getRankingTable(){
         console.log('func-↓getRankingTable')
         // POST
-        await axios.post('http://127.0.0.1:5003/get_ranking_table', {
+        // await axios.post('http://127.0.0.1:5003/get_ranking_table', {
+        await axios.post(this.heroku_addr + 'get_ranking_table', {
         })
         .then((response) => {
           this.rankingTable = response.data.ranking_table

@@ -52,30 +52,9 @@ def text2df(text):
     return df
 
 
-def update_participants_data(name, score):
+def update_participants_table(name, score):
     score = round(score, 3)
-    # fp = open(PATH_PARTICIPANTS_DATA, 'r')
-    # j = json.load(fp)  # str読み込み
-    try:
-        # ローカルJSONファイルの読み込み
-        with open(PATH_PARTICIPANTS_DATA, 'r') as f:
-            j = json.load(f)
-    except json.JSONDecodeError as e:
-        print('JSONDecodeError: ', e)
-    j = json.loads(j)  # str ---> dict
-    j[name]['scores'].append(score)
-
-    # dict-->json(text)
-    text = json.dumps(j)
-    # save
-
-    with open(PATH_PARTICIPANTS_DATA, 'w') as outfile:
-        json.dump(text, outfile)
-    # fw = open(PATH_PARTICIPANTS_DATA, 'w')
-    # json.dump(text, fw)
-    print('------')
-    update_ranking_table()
-    print('------')
+    print(name, score)
 
 
 def update_ranking_table():

@@ -120,7 +120,7 @@ def get_participants():
     names_list = df['name'].values
     print(names_list)
     names_str = ''
-    for name in names_str:
+    for name in names_list:
         names_str = names_str + name
     print(names_str)
     return names_str

@@ -60,7 +60,6 @@ def text2df(text):
 
 
 def update_participants_table(name, score):
-    score = round(score, 3)
     with engine.connect() as connection:
         connection.execute(f"insert into submissions (name, score) values('{name}', {score});")
 

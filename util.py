@@ -54,6 +54,9 @@ def text2df(text):
 
 def update_participants_table(name, score):
     score = round(score, 3)
+    with engine.connect() as connection:
+        result = connection.execute(f'insert into participants (name, score) values({name}, {score})')
+        print(result)
     print(name, score)
 
 

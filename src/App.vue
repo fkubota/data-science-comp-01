@@ -133,6 +133,7 @@ import axios from 'axios'
         })
         .then((response) => {
           this.score = response.data.score
+          console.log(this.score)
           this.getRankingTable()
         })
       },

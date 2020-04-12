@@ -2,6 +2,9 @@
 
 <img src="data/kagglelike-leaderboard.gif" width="800">
 
+- 本番環境イメージ
+<img src="data/kagglelike-leaderboard.png" width="800">
+
 ## memo
 - 使用したデータ・セット(private): https://github.com/fkubota/Dataset-CareerCon-2019-Help-Navigate-Robots
 

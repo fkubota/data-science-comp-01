@@ -39,7 +39,7 @@
         <v-row>
           <v-col align='right'>
             <v-btn x-large color='primary' @click='getScore' outlined target='#de'>
-              <v-icon left>mdi-checkbox-marked-circle</v-icon> submit
+              <v-icon left>mdi-send</v-icon> submit
             </v-btn>
           </v-col>
         </v-row>

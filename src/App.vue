@@ -49,6 +49,7 @@ import axios from 'axios'
   export default {
     data () {
       return {
+        heroku_addr: 'https://data-science-comp-01.herokuapp.com/',
         test_api:'test_api',
         score: '...',
         hello: '',
@@ -96,7 +97,8 @@ import axios from 'axios'
       async testApi(){
         console.log('func-↓testApi')
         // POST
-        await axios.post('https://data-science-comp-01.herokuapp.com/test_func', {
+        // await axios.post('https://data-science-comp-01.herokuapp.com/test_func', {
+        await axios.post(this.heroku_addr+'est_func', {
           test: 'hello_api',
         })
         .then((response) => {

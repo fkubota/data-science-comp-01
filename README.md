@@ -12,10 +12,12 @@
 	- address: https://data-science-comp-01.herokuapp.com/
 	- dashboard: https://dashboard.heroku.com/apps/data-science-comp-01
 	- log: `heroku logs -t -a data-science-comp-01`
-
-- check
-	- curl(local): curl localhost:5002/myapi -d "arg01=hello_flask"
-    - curl(web): curl https://data-science-comp-01.herokuapp.com/test -d "test=test_comment"
+	- check
+		- curl(local): curl localhost:5002/myapi -d "arg01=hello_flask"
+		- curl(web): curl https://data-science-comp-01.herokuapp.com/test -d "test=test_comment"
+	- postgresql control
+		1. heroku login
+		2. heroku pg:psql -a [app name]
 
 ## python3 setup
 1. cd data

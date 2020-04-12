@@ -73,22 +73,10 @@ import axios from 'axios'
         ],
         participants: [
           {
-            rank: 1,
-            name: 'A',
-            score: 159,
-            n_submission: 6.0,
-          },
-          {
-            rank: 2,
-            name: 'B',
-            score: 237,
-            n_submission: 9.0,
-          },
-          {
-            rank: 3,
-            name: 'C',
-            score: 262,
-            n_submission: 16.0,
+            rank: '...',
+            name: '...',
+            score: '...',
+            n_submission: '...',
           },
         ],
       }

@@ -26,6 +26,8 @@ def tell_me_score(text):
     path_y_te = str(current_dir)+'/./data/y_test.csv'
     df_y_te = pd.read_csv(path_y_te)
     df_y_te.to_sql('y_test', engine, if_exists='replace', index=False)
+    df = pd.read_sql(sql='SELECT * FROM y_test;', con=engine)
+    print('y_test from postgresql', df)
     # logic = all(df_y_te['series_id'].values == submission['series_id'].values)
     # if logic:
     #     return 'bad_submission'

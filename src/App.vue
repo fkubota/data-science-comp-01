@@ -106,7 +106,7 @@ import axios from 'axios'
         console.log('func-↓fileSelect')
         try {
           const csv = await this.readFileAsync(file)
-          this.subData = csv
+          this.subData = csv;
         } catch (e) {
           console.log(e)
         }

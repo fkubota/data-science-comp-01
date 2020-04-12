@@ -105,7 +105,8 @@ import axios from 'axios'
       async fileSelect(file){
         console.log('func-↓fileSelect')
         try {
-          const csv = await this.readFileAsync(file)
+          let csv = await this.readFileAsync(file)
+          csv = csv.replace(/\r?\n/g, '\n');
           this.subData = csv;
         } catch (e) {
           console.log(e)

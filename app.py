@@ -24,7 +24,9 @@ class GetScore(Resource):
         sub_data = args['arg_subData']
         selection_name = args['arg_selection_name']
         score = util.tell_me_score(sub_data)
-        if not score == 'bad_submission':
+        is_bad_sub = score == 'bad_submission'
+        is_blank_name = selection_name == ''
+        if not is_bad_sub or is_blank_name:  # 名前が空でないかつ、submission データが適切であるとき実行
             util.update_participants_table(selection_name, score)
         # print('--- out api get_score ---')
         return {"score": score}

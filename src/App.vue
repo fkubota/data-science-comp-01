@@ -1,9 +1,18 @@
 <template>
   <v-app>
     <template>
-      <v-snackbar v-model="show_alert" top dark color='red' :timeout=10000>
+      <v-overlay :value="show_overlay">
+        <v-progress-circular indeterminate size="64"></v-progress-circular>
+      </v-overlay>
+      <v-snackbar v-model="show_score_alert" top dark color='red' :timeout=2000>
+        <h4>select your name</h4>
+        <v-btn icon dark color='white' @click.native="show_score_alert = false">
+          <v-icon dark>mdi-close</v-icon>
+        </v-btn>
+      </v-snackbar>
+      <v-snackbar v-model="show_name_alert" top dark color='red' :timeout=2000>
         <h4>invalid submission style</h4>
-        <v-btn icon dark color='white' @click.native="show_alert = false">
+        <v-btn icon dark color='white' @click.native="show_name_alert = false">
           <v-icon dark>mdi-close</v-icon>
         </v-btn>
       </v-snackbar>
@@ -27,8 +36,12 @@
             <v-file-input @change='fileSelect' show-size label='selec your submission file' accept='.csv' ></v-file-input>
           </v-col>
         </v-row>
-        <v-row justify='end'>
-            <v-btn x-large color='primary' @click='getScore' outlined target='#de'>submit</v-btn>
+        <v-row>
+          <v-col align='right'>
+            <v-btn x-large color='primary' @click='getScore' outlined target='#de'>
+              <v-icon left>mdi-checkbox-marked-circle</v-icon> submit
+            </v-btn>
+          </v-col>
         </v-row>
         <v-list-item-title class="title grey--text text--darken-2" align='center' style='margin-top: 30px'>
           your submission score is 
@@ -48,10 +61,13 @@
           :items-per-page="100" 
           class="elevation-1 category-table">
           <!-- style="margin-left: 100px; margin-right: 100px;" > -->
-          <template slot="items" slot-scope="props">
+          <!-- <template slot="items" slot-scope="props">
             <td class="text-xs-right">{{ props.item.code }}</td>
             <td class="text-xs-right">{{ props.item.name }}</td>
             <td class="text-xs-right">{{ props.item.workerType }}</td>
+          </template> -->
+          <template v-slot:item.rank="{ item }">
+            <v-chip :color="getColor(item.rank)">{{ item.rank }}</v-chip>
           </template>
         </v-data-table>
       </v-container>
@@ -65,8 +81,10 @@ import axios from 'axios'
     data () {
       return {
         heroku_addr: 'https://data-science-comp-01.herokuapp.com/',
-        show_alert: false,
+        show_score_alert: false,
+        show_name_alert: false,
         show_score: false,
+        show_overlay: false,
         test_api:'test_api',
         score: '...',
         hello: '',
@@ -132,7 +150,13 @@ import axios from 'axios'
       },
       async getScore(){
         console.log('func-↓getScore')
+        if (this.selection_name == ''){
+          // alert('select your name');
+          this.show_score_alert = true
+          return
+        }
         this.show_score = false
+        this.show_overlay = true
         // POST
         await axios.post(this.heroku_addr + 'get_score', {
           arg_subData: this.subData,
@@ -143,14 +167,13 @@ import axios from 'axios'
           const score = response.data.score
           if (score == 'bad_submission'){
             // alert('invalid submission style');
-            this.show_alert = true
-          }else if (this.selection_name == ''){
-            alert('select your name');
+            this.show_score_alert = true
           }else{
             this.score = score
             this.getRankingTable()
           }
         this.show_score = true
+        this.show_overlay = false
         })
       },
       async getRankingTable(){
@@ -190,6 +213,12 @@ import axios from 'axios'
           participants.push(participant);
         this.participants = participants
         });
+      },
+      getColor (rank) {
+        if (rank == 1) return 'amber accent-2'
+        else if (rank == 2) return 'blue-grey lighten-4'
+        else if (rank == 3) return 'brown lighten-3'
+        else return 'white'
       },
     },
     // mounted () {

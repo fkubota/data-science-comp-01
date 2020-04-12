@@ -124,6 +124,8 @@ import axios from 'axios'
           console.log(this.score)
           if (this.score == 'bad_submission'){
             alert('invalid submission style');
+          }else if (this.selection_name == ''){
+            alert('select your name');
           }else{
             this.getRankingTable()
           }

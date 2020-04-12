@@ -25,17 +25,21 @@ def tell_me_score(text):
     df_y_te = pd.read_sql(sql='SELECT * FROM y_test;', con=engine)
 
     try:
+        print('---1')
         submission = text2df(text)
         y_true = df_y_te['surface'].values
         y_pred = submission['surface'].values
 
+        print('---2')
         le = LabelEncoder()
         le.fit(y_true)
 
         y_true = le.transform(y_true)
         y_pred = le.transform(y_pred)
+        print('---3')
         score = accuracy_score(y_true, y_pred)
         score = round(score, 3)
+        print('---4')
         return score
 
     except:

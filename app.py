@@ -26,7 +26,7 @@ class GetScore(Resource):
         score = util.tell_me_score(sub_data)
         util.update_participants_table(selection_name, score)
         # print('--- out api get_score ---')
-        return {"score": round(score, 3)}
+        return {"score": score}
 
 
 class GetRankingTable(Resource):

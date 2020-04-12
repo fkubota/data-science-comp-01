@@ -122,6 +122,6 @@ def get_participants():
     names_str = ''
     for name in names_list:
         names_str = names_str + ',' + name
-    names_str = names_str[:-1]
+    names_str = names_str[1:]
     print(names_str)
     return names_str

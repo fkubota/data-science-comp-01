@@ -117,4 +117,5 @@ def get_ranking_table():
 
 def get_participants():
     df = pd.read_sql(sql='SELECT * FROM participants;', con=engine)
-    return str(df)
+    names = df['name'].values
+    return names

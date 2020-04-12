@@ -153,8 +153,10 @@ import axios from 'axios'
         await axios.post(this.heroku_addr+'get_participants', {
         })
         .then((response) => {
-          console.log(response.data.participants)
-          this.participants = response.data.participants
+          const names_str = response.data.participants
+          const names = names_str.split(',')
+          console.log(names)
+          this.names = names
         })
       },
       updateRankingTable() {

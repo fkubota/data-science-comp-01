@@ -22,6 +22,7 @@ class GetScore(Resource):
         # print('--- in api get_score---')
         args = parser.parse_args()
         sub_data = args['arg_subData']
+        print(sub_data)
         selection_name = args['arg_selection_name']
         score = util.tell_me_score(sub_data)
         is_bad_sub = score == 'bad_submission'

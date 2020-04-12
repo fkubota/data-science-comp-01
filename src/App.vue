@@ -30,7 +30,7 @@
         <v-data-table
           :headers="headers" 
           :items="participants" 
-          :items-per-page="10" 
+          :items-per-page="100" 
           class="elevation-1 category-table"
           style="margin-left: 100px; margin-right: 100px;" >
           <template slot="items" slot-scope="props">
@@ -140,7 +140,6 @@ import axios from 'axios'
         .then((response) => {
           this.rankingTable = response.data.ranking_table
         })
-        console.log(this.rankingTable)
         this.updateRankingTable()
       },
       async getParticipants(){
@@ -151,7 +150,6 @@ import axios from 'axios'
         .then((response) => {
           const names_str = response.data.participants
           const names = names_str.split(',')
-          console.log(names)
           this.names = names
         })
       },

@@ -22,9 +22,6 @@ engine = create_engine('postgresql://{user}:{password}@{host}:{port}/{database}'
 
 
 def tell_me_score(text):
-    # current_dir = str(pathlib.Path(__file__).resolve().parent)
-    # path_y_te = str(current_dir)+'/./data/y_test.csv'
-    # df_y_te = pd.read_csv(path_y_te)
     df_y_te = pd.read_sql(sql='SELECT * FROM y_test;', con=engine)
 
     try:

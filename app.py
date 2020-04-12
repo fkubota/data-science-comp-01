@@ -37,11 +37,8 @@ class GetRankingTable(Resource):
 
 class GetParticipants(Resource):
     def post(self):
-        # print('--- in api GetParticipants ---')
-        # participants = "a, b, c, d"
-        parti = util.get_participants()
-        print(parti)
-        return {'participants': parti}
+        participants = util.get_participants()
+        return {'participants': participants}
 
 
 class TestFunc(Resource):

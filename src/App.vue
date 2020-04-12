@@ -18,7 +18,6 @@
           </v-col>
         </v-row>
         <v-row justify='end'>
-            <v-btn x-large color='primary' @click='testApi' outlined target='#de'>{{test_api}}</v-btn>
             <v-btn x-large color='primary' @click='getScore' outlined target='#de'>submit</v-btn>
         </v-row>
         <v-list-item-title class="title grey--text text--darken-2" align='center' style='margin-top: 30px'>

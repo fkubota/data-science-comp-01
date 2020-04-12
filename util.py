@@ -87,12 +87,28 @@ def update_participants_table(name, score):
 
 
 def get_ranking_table():
-    # df = pd.read_csv(PATH_RANKING_TABLE)
     df = pd.read_sql(sql='SELECT * FROM submissions;', con=engine)
-    print(df)
+
+    # create ranking table from participants
+    names = df['name'].unique()
+    n_subs = []
+    for name in names:
+        n_sub = sum(df['name'] == name)
+        n_subs.append(n_sub)
+    max_scores = []
+    for name in names:
+        idx = df['name'] == name
+        max_scores.append(df[idx]['score'].max())
+    df_rank = pd.DataFrame()
+    df_rank['#'] = np.arange(len(names))
+    df_rank['Name'] = names
+    df_rank['Score'] = max_scores
+    df_rank['N_Submission'] = n_subs
+
+    # create json ranking table
     json_str = ''
-    for i in range(len(df)):
-        a = df.iloc[i, :]
+    for i in range(len(df_rank)):
+        a = df_rank.iloc[i, :]
         s = f"{a['#']}, {a['Name']}, {a['Score']}, {a['N_Submission']} \n"
         json_str = f'{json_str} {s}'
     json_str = json_str[:-1]

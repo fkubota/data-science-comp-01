@@ -1,5 +1,13 @@
 <template>
   <v-app>
+    <template>
+      <v-snackbar v-model="show_alert" top dark color='red' :timeout=10000>
+        <h4>invalid submission style</h4>
+        <v-btn icon dark color='white' @click.native="show_alert = false">
+          <v-icon dark>mdi-close</v-icon>
+        </v-btn>
+      </v-snackbar>
+    </template>
     <v-app-bar color="primary" dark app class='title'>
       <v-toolbar-title>Data Science Competition #1</v-toolbar-title>
       <v-spacer></v-spacer>
@@ -7,11 +15,13 @@
         <v-icon dark>mdi-cached</v-icon>
       </v-btn>
     </v-app-bar>
+    <v-footer color="primary" dark app></v-footer>
+    <v-card class="mx-auto" width=1000>
     <v-content>
       <v-container>
         <v-row>
           <v-col>
-            <v-select v-model="selection_name" :items='names' label='select your name'> </v-select>
+            <v-select v-model="selection_name" :items='names' label='select your name' prepend-icon="mdi-account-circle"></v-select>
           </v-col>
           <v-col>
             <v-file-input @change='fileSelect' show-size label='selec your submission file' accept='.csv' ></v-file-input>
@@ -24,15 +34,15 @@
           your submission score is <h2><font color='blue'>{{score}}</font></h2>
         </v-list-item-title>
         <v-divider></v-divider>
-        <v-list-item-title class="title grey--text text--darken-2" align='center' style='margin-top: 30px'>
+        <v-list-item-title class="title grey--text text--darken-2" align='center' style='margin-top: 50px'>
           Leaderboard
         </v-list-item-title>
         <v-data-table
           :headers="headers" 
           :items="participants" 
           :items-per-page="100" 
-          class="elevation-1 category-table"
-          style="margin-left: 100px; margin-right: 100px;" >
+          class="elevation-1 category-table">
+          <!-- style="margin-left: 100px; margin-right: 100px;" > -->
           <template slot="items" slot-scope="props">
             <td class="text-xs-right">{{ props.item.code }}</td>
             <td class="text-xs-right">{{ props.item.name }}</td>
@@ -41,6 +51,7 @@
         </v-data-table>
       </v-container>
     </v-content>
+    </v-card>
   </v-app>
 </template>
 <script>
@@ -49,6 +60,7 @@ import axios from 'axios'
     data () {
       return {
         heroku_addr: 'https://data-science-comp-01.herokuapp.com/',
+        show_alert: false,
         test_api:'test_api',
         score: '...',
         hello: '',
@@ -123,7 +135,8 @@ import axios from 'axios'
           // this.score = response.data.score
           const score = response.data.score
           if (score == 'bad_submission'){
-            alert('invalid submission style');
+            // alert('invalid submission style');
+            this.show_alert = true
           }else if (this.selection_name == ''){
             alert('select your name');
           }else{

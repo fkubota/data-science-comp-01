@@ -41,11 +41,11 @@ def tell_me_score(text):
         y_pred = le.transform(y_pred)
         score = accuracy_score(y_true, y_pred)
         score = round(score, 3)
+        return score
 
     except:
         return 'bad_submission'
 
-    return score
 
 
 def text2df(text):

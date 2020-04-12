@@ -87,7 +87,9 @@ def update_ranking_table():
 
 
 def get_ranking_table():
-    df = pd.read_csv(PATH_RANKING_TABLE)
+    # df = pd.read_csv(PATH_RANKING_TABLE)
+    df = pd.read_sql(sql='SELECT * FROM submissions;', con=engine)
+    print(df)
     json_str = ''
     for i in range(len(df)):
         a = df.iloc[i, :]

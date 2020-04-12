@@ -60,30 +60,30 @@ def update_participants_table(name, score):
     print(name, score)
 
 
-def update_ranking_table():
-    print('----- python-↓update_ranking_table')
-    fp = open(PATH_PARTICIPANTS_DATA, 'r')
-    j = json.load(fp)  # str読み込み
-    j = json.loads(j)  # str ---> dict
-
-    names = list(j.keys())
-    best_scores = np.array([max(j[name]['scores']) for name in names])
-    rank_idxs = np.argsort(-best_scores)  # 降順にするために'-'をつけた
-    rank_names = []
-    rank_scores = []
-    rank_n_subs = []
-    for i in range(len(names)):
-        name = names[rank_idxs[i]]
-        n_sub = len(j[name]['scores'])
-        score = best_scores[rank_idxs[i]]
-        rank_names.append(name)
-        rank_scores.append(score)
-        rank_n_subs.append(n_sub)
-    df_rank = pd.DataFrame(np.arange(1, len(names)+1), columns=['#'])
-    df_rank['Name'] = rank_names
-    df_rank['Score'] = rank_scores
-    df_rank['N_Submission'] = rank_n_subs
-    df_rank.to_csv(PATH_RANKING_TABLE, index=False)
+# def update_ranking_table():
+#     print('----- python-↓update_ranking_table')
+#     fp = open(PATH_PARTICIPANTS_DATA, 'r')
+#     j = json.load(fp)  # str読み込み
+#     j = json.loads(j)  # str ---> dict
+#
+#     names = list(j.keys())
+#     best_scores = np.array([max(j[name]['scores']) for name in names])
+#     rank_idxs = np.argsort(-best_scores)  # 降順にするために'-'をつけた
+#     rank_names = []
+#     rank_scores = []
+#     rank_n_subs = []
+#     for i in range(len(names)):
+#         name = names[rank_idxs[i]]
+#         n_sub = len(j[name]['scores'])
+#         score = best_scores[rank_idxs[i]]
+#         rank_names.append(name)
+#         rank_scores.append(score)
+#         rank_n_subs.append(n_sub)
+#     df_rank = pd.DataFrame(np.arange(1, len(names)+1), columns=['#'])
+#     df_rank['Name'] = rank_names
+#     df_rank['Score'] = rank_scores
+#     df_rank['N_Submission'] = rank_n_subs
+#     df_rank.to_csv(PATH_RANKING_TABLE, index=False)
 
 
 def get_ranking_table():

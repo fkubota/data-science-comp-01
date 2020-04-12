@@ -98,7 +98,7 @@ import axios from 'axios'
         console.log('func-↓testApi')
         // POST
         // await axios.post('https://data-science-comp-01.herokuapp.com/test_func', {
-        await axios.post(this.heroku_addr+'est_func', {
+        await axios.post(this.heroku_addr+'test_func', {
           test: 'hello_api',
         })
         .then((response) => {

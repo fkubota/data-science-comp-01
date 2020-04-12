@@ -120,13 +120,14 @@ import axios from 'axios'
           arg_selection_name: this.selection_name,
         })
         .then((response) => {
-          this.score = response.data.score
-          console.log(this.score)
-          if (this.score == 'bad_submission'){
+          // this.score = response.data.score
+          const score = response.data.score
+          if (score == 'bad_submission'){
             alert('invalid submission style');
           }else if (this.selection_name == ''){
             alert('select your name');
           }else{
+            this.score = score
             this.getRankingTable()
           }
         })

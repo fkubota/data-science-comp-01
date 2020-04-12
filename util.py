@@ -4,9 +4,21 @@ import pandas as pd
 import pathlib
 import json
 import numpy as np
+from sqlalchemy import create_engine
 
 PATH_RANKING_TABLE = './data/ranking_table.csv'
 PATH_PARTICIPANTS_DATA = './data/participant.json'
+
+# データベースの接続情報
+connection_config = {
+    'user': 'xxgvdlopjhsvsk',
+    'password': '38078c4a27e141748248c1c42b0ec966549d95df7a51537eb55e96a426fd035b',
+    'host': 'ec2-54-147-209-121.compute-1.amazonaws.com',
+    'port': '5432',
+    'database': 'd2fj6i9l6jq4tu'
+}
+
+engine = create_engine('postgresql://{user}:{password}@{host}:{port}/{database}'.format(**connection_config))
 
 
 def tell_me_score(text):
@@ -104,4 +116,5 @@ def get_ranking_table():
 
 
 def get_participants():
-    pass
+    df = pd.read_sql(sql='SELECT * FROM participants;', con=engine)
+    return str(df)

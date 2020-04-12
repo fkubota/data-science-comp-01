@@ -104,6 +104,7 @@ def get_ranking_table():
     df_rank['Name'] = names
     df_rank['Score'] = max_scores
     df_rank['N_Submission'] = n_subs
+    print(df_rank)
 
     # create json ranking table
     json_str = ''

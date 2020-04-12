@@ -122,7 +122,11 @@ import axios from 'axios'
         .then((response) => {
           this.score = response.data.score
           console.log(this.score)
-          this.getRankingTable()
+          if (this.score == 'bad_submission'){
+            alert('invalid submission style');
+          }else{
+            this.getRankingTable()
+          }
         })
       },
       async getRankingTable(){

@@ -11,7 +11,8 @@ PATH_PARTICIPANTS_DATA = './data/participant.json'
 
 # データベースの接続情報
 connection_config = {
-    'user': 'mgplwhsgzryfpg',
+    # 'user': 'mgplwhsgzryfpg',
+    'user': 'nbslmgtikreile',
     'password': '44bc82c481ed89ceb96c893e89c0a38e3ca11c928715ad367c020b2e0dbed5bc',
     'host': 'ec2-34-193-232-231.compute-1.amazonaws.com',
     'port': '5432',

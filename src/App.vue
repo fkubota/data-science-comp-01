@@ -46,7 +46,7 @@
           </v-col>
         </v-row>
         <v-row justify='center' style='margin-top: 50px margin-bottom: 50px'>
-          <v-slide-y-transition>
+          <v-expand-transition>
             <v-card v-if=show_score width=500 height=100>
               <div class="title grey--text text--darken-2" align='center'>
                 your submission score is 
@@ -55,7 +55,7 @@
                   <p>{{score}}</p>
               </div>
             </v-card>
-          </v-slide-y-transition>
+          </v-expand-transition>
         </v-row>
 
         <!-- <v-divider></v-divider> -->

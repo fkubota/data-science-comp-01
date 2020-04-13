@@ -29,28 +29,24 @@
     <v-content>
       <v-container>
         <v-row>
-          <v-col>
-            <v-select v-model="selection_name" :items='names' label='select your name' prepend-icon="mdi-account-circle"></v-select>
-          </v-col>
-          <v-col>
-            <v-file-input @change='fileSelect' show-size label='selec your submission file' accept='.csv' ></v-file-input>
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col align='right'>
-            <v-btn x-large color='primary' @click='getScore' outlined target='#de' class="ma-2">
+          <!-- <v-spacer></v-spacer> -->
+            <v-select v-model="selection_name" :items='names' label='select your name' prepend-icon="mdi-account-circle" style='width: 50px'></v-select>
+            <v-file-input @change='fileSelect' show-size label='selec your submission file' accept='.csv' style='width: 50px'></v-file-input>
+            <v-btn large color='primary' @click='getScore' outlined target='#de' class="ma-2">
               <v-icon left>mdi-cloud-upload</v-icon> submit
             </v-btn>
-          </v-col>
         </v-row>
-        <v-list-item-title class="title grey--text text--darken-2" align='center' style='margin-top: 30px'>
-          your submission score is 
-           <transition mode="out-in">
-            <div v-if="this.show_score" style='fontSize: 40px' class='primary--text'>
-                 <p>{{score}}</p>
+        <v-col>
+          <div class="title grey--text text--darken-2" align='center'>
+            your submission score is 
+          </div>
+          <transition mode="out-in">
+            <div v-if="this.show_score" style='fontSize: 40px' class='primary--text' align='center'>
+                <p>{{score}}</p>
             </div>
-           </transition>
-        </v-list-item-title>
+          </transition>
+        </v-col>
+
         <v-divider></v-divider>
         <div class="title grey--text text--darken-2" align='center' style='margin-top: 50px'>
           <p>Leaderboard</p>
@@ -59,13 +55,8 @@
           :headers="headers" 
           :items="participants" 
           :items-per-page="100" 
-          class="elevation-1 category-table">
-          <!-- style="margin-left: 100px; margin-right: 100px;" > -->
-          <!-- <template slot="items" slot-scope="props">
-            <td class="text-xs-right">{{ props.item.code }}</td>
-            <td class="text-xs-right">{{ props.item.name }}</td>
-            <td class="text-xs-right">{{ props.item.workerType }}</td>
-          </template> -->
+          table-striped= true
+          class="table-striped table-bordered">
           <template v-slot:item.rank="{ item }">
             <v-chip :color="getColor(item.rank)">{{ item.rank }}</v-chip>
           </template>

@@ -30,7 +30,7 @@
       <v-container>
         <v-row>
             <v-select v-model="selection_name" :items='names' label='select your name' prepend-icon="mdi-account-circle" style='width: 50px'></v-select>
-            <v-file-input @change='fileSelect' show-size label='selec your submission file' accept='.csv' style='width: 50px'></v-file-input>
+            <v-file-input @change='fileSelect' show-size label='select your submission file' accept='.csv' style='width: 50px'></v-file-input>
             <v-btn large color='primary' @click='getScore' outlined target='#de' class="ma-2">
               <v-icon left>mdi-cloud-upload</v-icon> submit
             </v-btn>

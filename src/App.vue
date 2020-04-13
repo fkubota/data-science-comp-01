@@ -28,16 +28,25 @@
     <v-card class="mx-auto" width=1000>
     <v-content>
       <v-container>
-        <v-row>
-            <v-select v-model="selection_name" :items='names' label='select your name' prepend-icon="mdi-account-circle" style='width: 50px'></v-select>
-            <v-file-input @change='fileSelect' show-size label='select your submission file' accept='.csv' style='width: 50px'></v-file-input>
-            <v-btn large color='primary' @click='getScore' outlined target='#de' class="ma-2">
-              <v-icon left>mdi-cloud-upload</v-icon> submit
-            </v-btn>
+        <v-row align="end">
+          <v-col>
+            <v-spacer></v-spacer>
+          </v-col>
+          <v-col>
+              <v-select v-model="selection_name" :items='names' label='select your name' prepend-icon="mdi-account-circle" style='width: 400px'></v-select>
+              <v-file-input @change='fileSelect' show-size label='select your submission file' accept='.csv'></v-file-input>
+          </v-col>
+          <v-col>
+              <v-btn large color='primary' @click='getScore' outlined target='#de' class="ma-2">
+                <v-icon left>mdi-cloud-upload</v-icon> submit
+              </v-btn>
+          </v-col>
+          <v-col>
+            <v-spacer></v-spacer>
+          </v-col>
         </v-row>
-        <v-row style='margin-top: 50px'>
-          <v-spacer></v-spacer>
-          <v-card width=500 height=100>
+        <v-row justify='center' style='margin-top: 50px margin-bottom: 50px'>
+          <v-card v-if=show_score width=500 height=100>
             <div class="title grey--text text--darken-2" align='center'>
               your submission score is 
             </div>
@@ -47,7 +56,6 @@
               </div>
             </transition>
           </v-card>
-          <v-spacer></v-spacer>
         </v-row>
 
         <!-- <v-divider></v-divider> -->

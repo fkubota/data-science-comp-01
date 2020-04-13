@@ -13,8 +13,10 @@ PATH_PARTICIPANTS_DATA = './data/participant.json'
 connection_config = {
     # 'user': 'mgplwhsgzryfpg',
     'user': 'nbslmgtikreile',
-    'password': '44bc82c481ed89ceb96c893e89c0a38e3ca11c928715ad367c020b2e0dbed5bc',
-    'host': 'ec2-34-193-232-231.compute-1.amazonaws.com',
+    # 'password': '44bc82c481ed89ceb96c893e89c0a38e3ca11c928715ad367c020b2e0dbed5bc',
+    'password': '16cff9bc474034d0e129b70ce20acdf58be75bf2ff2c639808ba31caea87e2b0',
+    # 'host': 'ec2-34-193-232-231.compute-1.amazonaws.com',
+    'host': 'ec2-52-201-55-4.compute-1.amazonaws.com',
     'port': '5432',
     'database': 'd2hl0a176aeg5e'
 }

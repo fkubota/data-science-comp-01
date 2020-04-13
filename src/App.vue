@@ -46,16 +46,16 @@
           </v-col>
         </v-row>
         <v-row justify='center' style='margin-top: 50px margin-bottom: 50px'>
-          <v-card v-if=show_score width=500 height=100>
-            <div class="title grey--text text--darken-2" align='center'>
-              your submission score is 
-            </div>
-            <transition mode="out-in">
+          <v-slide-y-transition>
+            <v-card v-if=show_score width=500 height=100>
+              <div class="title grey--text text--darken-2" align='center'>
+                your submission score is 
+              </div>
               <div v-if="this.show_score" style='fontSize: 40px' class='primary--text' align='center'>
                   <p>{{score}}</p>
               </div>
-            </transition>
-          </v-card>
+            </v-card>
+          </v-slide-y-transition>
         </v-row>
 
         <!-- <v-divider></v-divider> -->
@@ -232,29 +232,3 @@ import axios from 'axios'
     }
   }
 </script>
-
-<style lang="scss">
- .v-enter-active {
-  transition: all 1.0s ease 0s;
- }
- .v-leave-active {
-  transition: all 0s ease 0s;
- }
- .v-leave-active {
-  position: absolute;
- }
- .v-enter,
- .v-leave-to {
-  opacity: 0;
- }
- .v-enter {
-  transform: translateX(-60px);
- }
- .v-enter-to,
- .v-leave {
-  transform: translateX(0);
- }
- .v-leave-to {
-  transform: translateX(60px);
- }
-</style>

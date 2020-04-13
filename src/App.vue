@@ -211,7 +211,7 @@ import axios from 'axios'
       getColor (rank) {
         if (rank == 1) return 'amber accent-2'
         else if (rank == 2) return 'blue-grey lighten-4'
-        else if (rank == 3) return 'brown lighten-3'
+        else if (rank == 3) return '#B87333'
         else return 'white'
       },
     },

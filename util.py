@@ -18,7 +18,8 @@ connection_config = {
     # 'host': 'ec2-34-193-232-231.compute-1.amazonaws.com',
     'host': 'ec2-52-201-55-4.compute-1.amazonaws.com',
     'port': '5432',
-    'database': 'd2hl0a176aeg5e'
+    # 'database': 'd2hl0a176aeg5e'
+    'database': 'dsp6pka7ol1o9'
 }
 
 engine = create_engine('postgresql://{user}:{password}@{host}:{port}/{database}'.format(**connection_config))

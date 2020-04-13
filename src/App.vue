@@ -66,7 +66,7 @@
           :headers="headers" 
           :items="participants" 
           :items-per-page="100" 
-          table-striped= true
+          hide-default-footer
           class="table-striped table-bordered">
           <template v-slot:item.rank="{ item }">
             <v-chip :color="getColor(item.rank)">{{ item.rank }}</v-chip>

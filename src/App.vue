@@ -66,8 +66,7 @@
           :headers="headers" 
           :items="participants" 
           :items-per-page="100" 
-          hide-default-footer
-          class="table-striped table-bordered">
+          hide-default-footer>
           <template v-slot:item.rank="{ item }">
             <v-chip :color="getColor(item.rank)">{{ item.rank }}</v-chip>
           </template>
@@ -180,6 +179,7 @@ import axios from 'axios'
       },
       async getRankingTable(){
         console.log('func-↓getRankingTable')
+        this.show_overlay = true
         // POST
         // await axios.post('http://127.0.0.1:5003/get_ranking_table', {
         await axios.post(this.heroku_addr + 'get_ranking_table', {
@@ -188,6 +188,7 @@ import axios from 'axios'
           this.rankingTable = response.data.ranking_table
         })
         this.updateRankingTable()
+        this.show_overlay = false
       },
       async getParticipants(){
         console.log('func-↓getParticipants')

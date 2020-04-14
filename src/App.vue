@@ -19,10 +19,6 @@
     </template>
     <v-app-bar color="primary" dark app class='title'>
       <v-toolbar-title>Data Science Competition #1</v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn x-large icon dark @click='getRankingTable'>
-        <v-icon dark>mdi-cached</v-icon>
-      </v-btn>
     </v-app-bar>
     <v-footer color="primary" dark app></v-footer>
     <v-card class="mx-auto" width=1000>
@@ -58,17 +54,36 @@
           </v-expand-transition>
         </v-row>
 
-        <!-- <v-divider></v-divider> -->
-        <div class="title grey--text text--darken-2" align='center' style='margin-top: 50px'>
-          <p>Leaderboard</p>
-        </div>
+            <!-- <div class="title grey--text text--darken-2" style='margin-top: 50px'> -->
+              <!-- <p>Leaderboard</p> -->
+            <!-- </div> -->
+
+        <v-row style='margin-top: 50px'>
+          <v-col>
+            <v-spacer></v-spacer>
+          </v-col>
+          <v-col align='center'>
+            <div class="title grey--text text--darken-2">
+              <p>Leaderboard</p>
+            </div>
+            <!-- Leaderboard -->
+          </v-col>
+          <v-col justify='end' align='end'>
+            <v-btn x-large icon @click='getRankingTable'> <v-icon>mdi-cached</v-icon> </v-btn>
+          </v-col>
+
+        </v-row>
+
+
+
         <v-data-table
           :headers="headers" 
           :items="participants" 
           :items-per-page="100" 
           hide-default-footer>
           <template v-slot:item.rank="{ item }">
-            <v-chip :color="getColor(item.rank)">{{ item.rank }}</v-chip>
+            <v-icon left :color="getColor(item.rank)">mdi-crown</v-icon>
+              {{ item.rank }}
           </template>
         </v-data-table>
       </v-container>

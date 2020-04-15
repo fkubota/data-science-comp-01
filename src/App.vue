@@ -18,7 +18,7 @@
       </v-snackbar>
     </template>
     <v-app-bar color="primary" dark app class='title'>
-      <v-toolbar-title>Data Science Competition #1</v-toolbar-title>
+      <v-toolbar-title>Data Science Competition #1    (deadline: 2020/04/30 12:00)</v-toolbar-title>
     </v-app-bar>
     <v-footer color="primary" dark app></v-footer>
     <v-card class="mx-auto" width=1000>

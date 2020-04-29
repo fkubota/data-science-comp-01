@@ -11,15 +11,11 @@ PATH_PARTICIPANTS_DATA = './data/participant.json'
 
 # データベースの接続情報
 connection_config = {
-    # 'user': 'mgplwhsgzryfpg',
-    'user': 'nbslmgtikreile',
-    # 'password': '44bc82c481ed89ceb96c893e89c0a38e3ca11c928715ad367c020b2e0dbed5bc',
-    'password': '16cff9bc474034d0e129b70ce20acdf58be75bf2ff2c639808ba31caea87e2b0',
-    # 'host': 'ec2-34-193-232-231.compute-1.amazonaws.com',
-    'host': 'ec2-52-201-55-4.compute-1.amazonaws.com',
+    'user': 'yvyrgwcyvwdkyo',
+    'password': '493307aab65becb0122fe4530c42f4945340d3d9092d1eaab8a9b7534593165d',
+    'host': 'ec2-34-234-228-127.compute-1.amazonaws.com',
     'port': '5432',
-    # 'database': 'd2hl0a176aeg5e'
-    'database': 'dsp6pka7ol1o9'
+    'database': 'd80df3qrep9344'
 }
 
 engine = create_engine('postgresql://{user}:{password}@{host}:{port}/{database}'.format(**connection_config))
